@@ -36,7 +36,7 @@ function addTask() {
     checkboxes[i].checked = false;
   }
 
-  renderTasks();    
+  renderTasks();
 }
 
 function removeTask(status, index) {
@@ -78,3 +78,5 @@ function renderTasks() {
     }
   }
 }
+
+//Something
