@@ -1,0 +1,251 @@
+body {
+    font-family: "Inter", Arial;
+    background-color: #F5F5F5;
+}
+
+.card {
+    margin: 70px 200px;
+    background-color: #FEFEFB;
+    padding-left: 50px;
+    padding-bottom: 70px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nav {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-2 {
+    display: flex;
+    gap: 20px;
+    padding-left: 400px;
+    text-decoration: underline;
+}
+.nav-2 p{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Inter", Arial;           
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo p{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: "Inter", Arial;
+}
+
+.input-area {
+    border-radius: 15px;
+    border-width: 1px;
+    border-color: lightgray;
+    height: 30px;
+    padding-right: 70px;
+    text-align: center;
+
+}
+
+.radio {
+    padding-top: 7px;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-class {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.radio-label1 {
+    background-color: #54C1AD;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    margin-right: 50px;
+    border-radius: 20px;
+}
+
+.radio-label1:hover {
+    background-color: #7eefdb;
+}
+
+.radio-input:checked+.radio-label1 {
+    background: #146355;
+}
+
+.radio-label2 {
+    background-color: #FDBF46;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    margin-right: 50px;
+}
+
+.radio-label2:hover {
+    background-color: #fbd78d;
+}
+
+.radio-input:checked+.radio-label2 {
+    background: #a36f06;
+}
+
+.radio-label3 {
+    background-color: #F06A6D;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    margin-right: 40px;
+}
+
+.radio-label3:hover {
+    background-color: #f3989a;
+}
+
+.radio-input:checked+.radio-label3 {
+    background: #a20e10;
+}
+
+.active-button {
+    background-color: #54C1AD;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border-style: none;
+    margin: 30px;
+    font-size: 19px;
+}
+
+.sec-active {
+    display: flex;
+    align-items: center;
+
+}
+
+.active-line {
+    height: 1px;
+    background-color: #A3A3B9;
+    width: 90%;
+    margin-right: 230px;
+    margin-left: -30px;
+}
+
+.pending-button {
+    background-color: #FDBF46;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border-style: none;
+    margin: 30px;
+    font-size: 19px;
+}
+
+.blocked-button {
+    background-color: #F06A6D;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border-style: none;
+    margin: 30px;
+    font-size: 19px;
+}
+
+.add-button {
+    background-color: #5B6097;
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border-style: none;
+    font-size: 19px;
+    margin-left: -20px;
+}
+
+.add-button:hover {
+    background-color: #152094;
+}
+
+.add-button:active {
+    background-color: #152094;
+}
+
+.status-badge {
+    /* background-color: #5B6097; */
+    color: white;
+    cursor: pointer;
+    padding: 7px 20px;
+    border-radius: 20px;
+    border-style: none;
+    font-size: 19px;
+}
+
+.status-badge.active {
+    background: #54C1AD;
+}
+
+.status-badge.pending {
+    background: #FDBF46;
+}
+
+.status-badge.closed {
+    background: #F06A6D;
+}
+
+.task {
+    background: #FEFEFB;
+    padding: 7px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 790px;
+    margin-left: 25px;
+    margin-right: 70px;
+    border-color: #A3A3B9;
+    border-style: solid;
+    border-width: 1px;
+}
+.task2 {
+    background: #FEFEFB;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 450px;
+    margin-left: 270px;
+    margin-top: -30px;
+    
+}
+
+.edit-img {
+    width: 20px;
+    height: 50px;
+}
+.delete-button{
+    background: white;
+    border-style: none;
+
+}

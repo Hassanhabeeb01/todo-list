@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background: #fdfdfd;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        .checkbox-group {
+            margin: 10px 0;
+        }
+
+        .checkbox-group label {
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .group {
+            margin-top: 30px;
+        }
+
+        .group h3 {
+            text-transform: capitalize;
+            color: white;
+            padding: 6px 12px;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .task {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .active {
+            background: #2ecc71;
+        }
+
+        .pending {
+            background: #f1c40f;
+        }
+
+        .closed {
+            background: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📝 Task Manager</h1>
+
+    <!-- Task input -->
+    <input type="text" id="taskName" placeholder="Enter task name" />
+
+    <!-- Status checkboxes -->
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="status" value="active" /> Active</label>
+        <label><input type="checkbox" name="status" value="pending" /> Pending</label>
+        <label><input type="checkbox" name="status" value="closed" /> Closed</label>
+    </div>
+
+    <!-- Add button -->
+    <button onclick="addTask()">+ Add</button>
+
+    <!-- Task Display Areas -->
+    <div id="tasksContainer">
+        <div class="group">
+            <h3 class="active">Active</h3>
+            <div id="activeTasks"></div>
+        </div>
+
+        <div class="group">
+            <h3 class="pending">Pending</h3>
+            <div id="pendingTasks"></div>
+        </div>
+
+        <div class="group">
+            <h3 class="closed">Closed</h3>
+            <div id="closedTasks"></div>
+        </div>
+    </div>
+
+    <!-- JavaScript Code -->
+    <script>
+        const taskGroups = {
+            active: [],
+            pending: [],
+            closed: []
+        };
+
+        function addTask() {
+            const name = document.getElementById("taskName").value.trim();
+            let status = "";
+
+            // Loop through checkboxes to get checked one
+            const checkboxes = document.querySelectorAll('input[name="status"]');
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    status = checkboxes[i].value;
+                }
+            }
+
+            if (!name) {
+                alert("Please enter a task name.");
+                return;
+            }
+
+            if (!status) {
+                alert("Please select one status.");
+                return;
+            }
+
+            const task = {
+                name: name,
+                status: status,
+                start_date: new Date().toISOString().split("T")[0],
+                end_date: new Date(Date.now() + 7 * 86400000).toISOString().split("T")[0]
+            };
+
+            taskGroups[status].push(task);
+
+            // Reset input
+            document.getElementById("taskName").value = "";
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+
+            renderTasks();
+        }
+
+        function removeTask(status, index) {
+            taskGroups[status].splice(index, 1);
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const statuses = ["active", "pending", "closed"];
+
+            for (let i = 0; i < statuses.length; i++) {
+                const status = statuses[i];
+                const container = document.getElementById(`${status}Tasks`);
+                container.innerHTML = "";
+
+                for (let j = 0; j < taskGroups[status].length; j++) {
+                    const task = taskGroups[status][j];
+
+                    const taskEl = document.createElement("div");
+                    taskEl.className = "task";
+                    taskEl.innerHTML = `
+            <div>
+              <strong>${task.name}</strong>
+              </div>
+              <div>
+              <small> ${task.start_date}</small>
+            </div>
+            <div>
+              <span class="status-badge ${task.status}">${task.status}</span>
+              </div>
+              <div>
+              <button onclick="removeTask('${status}', ${j})">🗑</button>
+            </div>
+          `;
+                    container.appendChild(taskEl);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

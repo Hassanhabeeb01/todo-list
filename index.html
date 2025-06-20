@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    
+    
+        <link rel="stylesheet" href="style.css">
+    
+        <script src="script.js"></script>
+
+    <title>To Do List</title>
+   
+</head>
+
+<body>
+    <div class="card">
+        <div class="nav">
+            <div class="logo">
+                <img src="quill_todo.png">
+                <p>Logospum</p>
+            </div>
+            <div class="nav-2">
+                <p><a>ToDo List</p>
+                <p>Perfil</p>
+            </div>
+        </div>
+        <div class="radio-class">
+            <input class="input-area" placeholder="Enter Your Tasks" size="30" id="taskName">
+            <div class="radio">
+                <input class="radio-input" type="radio" value="active" name="myRadio" id="myRadio1">
+                <label class="radio-label1" for="myRadio1">active</label>
+                <input class="radio-input" type="radio" value="pending" name="myRadio" id="myRadio2">
+                <label class="radio-label2" for="myRadio2">pending</label>
+                <input class="radio-input" type="radio" value="closed" name="myRadio" id="myRadio3">
+                <label class="radio-label3" for="myRadio3">closed</label>
+            </div>
+            <button class="add-button" onclick="addTask()">add</button>
+        </div>
+        <div class="sec-active">
+            <button class="active-button">active</button>
+            <div class="active-line"></div>
+        </div>
+        <div class="task2">
+            <div><small>Date created</small></div>
+            <div><small>Status</small></div>
+        </div>
+        <div id="activeTasks"></div>
+        <div class="sec-active">
+            <button class="pending-button">pending</button>
+            <div class="active-line"></div>
+        </div>
+        <div class="task2">
+            <div><small>Date created</small></div>
+            <div><small>Status</small></div>
+        </div>
+        <div id="pendingTasks"></div>
+        <div class="sec-active">
+            <button class="blocked-button">closed</button>
+            <div class="active-line"></div>
+        </div>
+        <div class="task2">
+            <div><small>Date created</small></div>
+            <div><small>Status</small></div>
+        </div>
+        <div id="closedTasks"></div>
+    </div>
+
+    
+
+</html>

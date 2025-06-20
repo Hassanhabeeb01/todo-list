@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>To Do List</title>
+    <style>
+        body {
+            font-family: "Inter", Arial;
+            background-color: #F5F5F5;
+        }
+
+        .card {
+            margin: 70px 200px;
+            background-color: #FEFEFB;
+            padding-left: 50px;
+            padding-bottom: 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .nav {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-2 {
+            display: flex;
+            gap: 20px;
+            padding-left: 400px;
+            text-decoration: underline;
+            margin-right: 50px;
+        }
+        .nav-2 p{
+            font-size: 24px;
+            font-weight: 600;
+            font-family: "Inter", Arial;           
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo p{
+            font-size: 24px;
+            font-weight: 600;
+            font-family: "Inter", Arial;
+        }
+
+        .input-area {
+            border-radius: 15px;
+            border-width: 1px;
+            border-color: lightgray;
+            height: 30px;
+            padding-right: 70px;
+            text-align: center;
+
+        }
+
+        .radio {
+            padding-top: 7px;
+        }
+
+        .radio-input {
+            display: none;
+        }
+
+        .radio-label1 {
+            background-color: #54C1AD;
+            color: white;
+            cursor: pointer;
+            padding: 7px 15px;
+            margin-right: 50px;
+            border-radius: 20px;
+        }
+
+        .radio-class {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .radio-input:checked+.radio-label1 {
+            background: #146355;
+        }
+
+        .radio-label2 {
+            background-color: #FDBF46;
+            color: white;
+            cursor: pointer;
+            padding: 7px 10px;
+            border-radius: 20px;
+            margin-right: 50px;
+        }
+
+        .radio-input:checked+.radio-label2 {
+            background: #a36f06;
+        }
+
+        .radio-label3 {
+            background-color: #F06A6D;
+            color: white;
+            cursor: pointer;
+            padding: 7px;
+            border-radius: 20px;
+            margin-right: 40px;
+        }
+
+        .radio-input:checked+.radio-label3 {
+            background: #a20e10;
+        }
+
+        .radio-label3:hover {
+            background-color: #f4a2a4;
+        }
+
+        .active-button {
+            background-color: #54C1AD;
+            color: white;
+            cursor: pointer;
+            padding: 7px 15px;
+
+            border-radius: 20px;
+            border-style: none;
+            margin: 30px;
+            font-size: 19px;
+        }
+
+        .sec-active {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .active-line {
+            height: 2px;
+            background-color: #A3A3B9;
+            width: 90%;
+            margin-right: 230px;
+            margin-left: -30px;
+        }
+
+        .pending-button {
+            background-color: #FDBF46;
+            color: white;
+            cursor: pointer;
+            padding: 7px 15px;
+
+            border-radius: 20px;
+            border-style: none;
+            margin: 30px;
+            font-size: 19px;
+        }
+
+        .blocked-button {
+            background-color: #F06A6D;
+            color: white;
+            cursor: pointer;
+            padding: 7px 15px;
+
+            border-radius: 20px;
+            border-style: none;
+            margin: 30px;
+            font-size: 19px;
+        }
+
+        .add-button {
+            background-color: #5B6097;
+            color: white;
+            cursor: pointer;
+            padding: 7px 30px;
+            border-radius: 20px;
+            border-style: none;
+            font-size: 19px;
+
+
+        }
+
+        .status-badge {
+            /* background-color: #5B6097; */
+            color: white;
+            cursor: pointer;
+            padding: 7px 15px;
+            border-radius: 20px;
+            border-style: none;
+            font-size: 19px;
+        }
+
+        .status-badge.active {
+            background: #54C1AD;
+        }
+
+        .status-badge.pending {
+            background: #FDBF46;
+        }
+
+        .status-badge.closed {
+            background: #F06A6D;
+        }
+
+        .task {
+            background: #FEFEFB;
+            padding: 7px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 790px;
+            margin-left: 25px;
+            margin-right: 70px;
+            border-color: #A3A3B9;
+            border-style: solid;
+            border-width: 1px;
+        }
+
+        .task2 {
+            background: #FEFEFB;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 450px;
+            margin-left: 270px;
+            margin-top: -30px;
+        }
+        .delete-button{
+            background: white;
+            border-style: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="nav">
+            <div class="logo">
+                <img src="quill_todo.png">
+                <p class="">Logospum</p>
+            </div>
+            <div class="nav-2">
+                <p>ToDo List</p>
+                <p>Perfil</p>
+            </div>
+        </div>
+        <div class="radio-class">
+            <input class="input-area" placeholder="Enter Your Tasks" size="30" id="taskName">
+            <div class="radio">
+                <input class="radio-input" type="radio" value="active" name="myRadio" id="myRadio1">
+                <label class="radio-label1" for="myRadio1">active</label>
+                <input class="radio-input" type="radio" value="pending" name="myRadio" id="myRadio2">
+                <label class="radio-label2" for="myRadio2">pending</label>
+                <input class="radio-input" type="radio" value="closed" name="myRadio" id="myRadio3">
+                <label class="radio-label3" for="myRadio3">closed</label>
+            </div>
+            <button class="add-button" onclick="addTask()"> <i class="fa-solid fa-plus"></i>Add</button>
+        </div>
+        <div class="sec-active">
+            <button class="active-button">active</button>
+            <div class="active-line"></div>
+        </div>
+        <div class="task2">
+            <div><small>Date created</small></div>
+            <div><small>Status</small></div>
+        </div>
+    <div id="activeTasks"></div>
+    <div class="sec-active">
+        <button class="pending-button">pending</button>
+        <div class="active-line"></div>
+    </div>
+    <div class="task2">
+        <div><small>Date created</small></div>
+        <div><small>Status</small></div>
+    </div>
+    <div id="pendingTasks"></div>
+    <div class="sec-active">
+        <button class="blocked-button">blocked</button>
+        <div class="active-line"></div>
+    </div>
+    <div class="task2">
+        <div><small>Date created</small></div>
+        <div><small>Status</small></div>
+    </div>
+    <div id="blockedTasks"></div>
+    </div>
+    <script>
+        const taskGroups = {
+            active: [],
+            pending: [],
+            closed: []
+        };
+        function addTask() {
+            const name = document.getElementById("taskName").value.trim();
+            let status = "";
+            const checkboxes = document.querySelectorAll('input[name="myRadio"]');
+
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    status = checkboxes[i].value;
+                }
+            }
+
+            if (!name) {
+                alert("Please enter a task name.");
+                return;
+            }
+
+            if (!status) {
+                alert("Please select one status.");
+                return;
+            }
+
+
+            const task = {
+                name: name,
+                status: status,
+                start_date: new Date().toISOString().split("T")[0],
+            };
+
+            taskGroups[status].push(task);
+            document.getElementById("taskName").value = "";
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = false;
+            }
+
+            renderTasks();
+        }
+
+        function removeTask(status, index) {
+            taskGroups[status].splice(index, 1);
+            renderTasks();
+        }
+
+        function renderTasks() {
+            const statuses = ["active", "pending", "blocked"];
+
+            for (let i = 0; i < statuses.length; i++) {
+                const status = statuses[i];
+                const container = document.getElementById(`${status}Tasks`);
+                container.innerHTML = "";
+
+                for (let j = 0; j < taskGroups[status].length; j++) {
+                    const task = taskGroups[status][j];
+                    const taskEl = document.createElement("div");
+                    taskEl.className = "task";
+                    taskEl.innerHTML = `
+                           <div>
+                            <strong>${task.name}</strong>
+                            </div>
+                            <div>
+                            <small>${task.start_date}</small>
+                            </div>
+                        <div>
+                            <span class="status-badge ${status}">${status}</span>
+                            </div>
+                            <div>
+                            <button class="delete-button" onclick="removeTask('${status}', ${i})"><img src="Trash.png"></button>
+                        </div>`;
+
+                    
+                    container.appendChild(taskEl);
+                }
+            }
+
+        }
+
+    </script>
+
+</html>
